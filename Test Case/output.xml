@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20230523 16:25:25.724" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCase" source="C:\Users\91984\OneDrive\Desktop\Amazon Week4\Test Case\TestCase.robot">
+<kw name="open Browser and navigate to url" library="Keyword" type="SETUP">
+<kw name="Open Browser" library="RPA.Browser.Selenium">
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230523 16:25:26.224" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.in'.</msg>
+<status status="PASS" starttime="20230523 16:25:26.224" endtime="20230523 16:25:32.410"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230523 16:25:32.410" endtime="20230523 16:25:32.870"/>
+</kw>
+<status status="PASS" starttime="20230523 16:25:26.224" endtime="20230523 16:25:32.870"/>
+</kw>
+<test id="s1-t1" name="Verifying Amazon website homepage" line="7">
+<kw name="Given Scrolldown the homepage untill todays deals and click on the available third item" library="Keyword">
+<kw name="Scroll Element Into View" library="RPA.Browser.Selenium">
+<arg>${TodayDeals}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230523 16:25:32.873" endtime="20230523 16:25:33.696"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${TodayDeals}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230523 16:25:33.696" endtime="20230523 16:25:33.734"/>
+</kw>
+<kw name="Click Element When Visible" library="RPA.Browser.Selenium">
+<arg>${Product}</arg>
+<doc>Click element identified by ``locator``, once it becomes visible.</doc>
+<msg timestamp="20230523 16:25:33.786" level="INFO">Clicking element 'xpath://*[@class='a-unordered-list a-nostyle a-horizontal feed-carousel-shelf _deals-shoveler-v2_style_list__pjYuB']/li[3]'.</msg>
+<status status="PASS" starttime="20230523 16:25:33.734" endtime="20230523 16:25:35.089"/>
+</kw>
+<status status="PASS" starttime="20230523 16:25:32.873" endtime="20230523 16:25:35.089"/>
+</kw>
+<kw name="When click on any of the items you want and verify the price" library="Keyword">
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${ProductsPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230523 16:25:35.090" endtime="20230523 16:25:35.259"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${PP1}</var>
+<arg>${ProductPrice}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 16:25:35.304" level="INFO">${PP1} = 59,990</msg>
+<status status="PASS" starttime="20230523 16:25:35.259" endtime="20230523 16:25:35.304"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${ProductsPage}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230523 16:25:35.304" level="INFO">Clicking element 'xpath://*[@class='a-unordered-list a-nostyle a-horizontal a-spacing-none']/li[2]'.</msg>
+<status status="PASS" starttime="20230523 16:25:35.304" endtime="20230523 16:25:42.288"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${ActualPrice}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230523 16:25:42.288" endtime="20230523 16:25:42.496"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${PP2}</var>
+<arg>${ActualPrice}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 16:25:42.628" level="INFO">${PP2} = 59,990</msg>
+<status status="PASS" starttime="20230523 16:25:42.496" endtime="20230523 16:25:42.628"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${PP1}</arg>
+<arg>${PP2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230523 16:25:42.628" endtime="20230523 16:25:42.631"/>
+</kw>
+<status status="PASS" starttime="20230523 16:25:35.090" endtime="20230523 16:25:42.631"/>
+</kw>
+<kw name="Then open product details and iterate through the table" library="Keyword">
+<kw name="Scroll Element Into View" library="RPA.Browser.Selenium">
+<arg>${ProductDetails}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230523 16:25:42.631" endtime="20230523 16:25:43.090"/>
+</kw>
+<kw name="Click Element When Visible" library="RPA.Browser.Selenium">
+<arg>${ProductDetails}</arg>
+<doc>Click element identified by ``locator``, once it becomes visible.</doc>
+<msg timestamp="20230523 16:25:43.196" level="INFO">Clicking element 'xpath://a[@id='seeMoreDetailsLink']'.</msg>
+<status status="PASS" starttime="20230523 16:25:43.090" endtime="20230523 16:25:43.868"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${TechnicalDetails}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230523 16:25:43.868" endtime="20230523 16:25:44.336"/>
+</kw>
+<kw name="Get Element Count" library="RPA.Browser.Selenium">
+<var>${RowCount}</var>
+<arg>${row}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230523 16:25:45.397" level="INFO">${RowCount} = 53</msg>
+<status status="PASS" starttime="20230523 16:25:44.336" endtime="20230523 16:25:45.397"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${RowValue}</var>
+<value>1</value>
+<value>${RowCount}+1</value>
+<iter>
+<var name="${RowValue}">1</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${RowKey}</var>
+<arg>xpath://*[@class='a-expander-content a-expander-section-content a-section-expander-inner']/table/tbody/tr[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230523 16:25:45.678" level="INFO">${RowKey} = Model Name Aspire 5 Gaming</msg>
+<status status="PASS" starttime="20230523 16:25:45.399" endtime="20230523 16:25:45.678"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${RowKey}&quot;==&quot;${ActualKey}&quot;">
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${ColumnValue}</var>
+<arg>xpath://*[@class='a-expander-content a-expander-section-content a-section-expander-inner']/table/tbody/tr[4]/td</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.678"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RowKey}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.678"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ColumnValue}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.678"/>
+</kw>
+<status status="NOT RUN" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.678"/>
+</branch>
+<status status="PASS" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.678"/>
+</if>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<msg timestamp="20230523 16:25:45.681" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20230523 16:25:45.678" endtime="20230523 16:25:45.682"/>
+</kw>
+<status status="PASS" starttime="20230523 16:25:45.399" endtime="20230523 16:25:45.682"/>
+</iter>
+<status status="PASS" starttime="20230523 16:25:45.397" endtime="20230523 16:25:45.682"/>
+</for>
+<status status="PASS" starttime="20230523 16:25:42.631" endtime="20230523 16:25:45.682"/>
+</kw>
+<tag>sanity</tag>
+<status status="PASS" starttime="20230523 16:25:32.870" endtime="20230523 16:25:45.684"/>
+</test>
+<kw name="Close Browser" library="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230523 16:25:45.684" endtime="20230523 16:25:48.126"/>
+</kw>
+<status status="PASS" starttime="20230523 16:25:25.729" endtime="20230523 16:25:48.126"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">sanity</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCase">TestCase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
